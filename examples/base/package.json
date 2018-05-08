@@ -1,4 +1,5 @@
 {
   "dependencies": {
+    "umi-plugin-dva": "^0.6.4"
   }
 }

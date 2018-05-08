@@ -22,10 +22,48 @@ export default {
 }
 ```
 
+Add locale file in `src/locale` like `zh-CN.js`.
+
+```js
+export default {
+  test: '测试',
+}
+```
+
+Then you can wirte code like this:
+
+```
+import {
+  formatMessage,
+  setLocale,
+  getLocale,
+  FormattedMessage,
+} from 'umi/locale';
+
+export default () => {
+  return <div><FormattedMessage id="test" /></div>
+}
+```
+
 ## Examples
 
-* [atpl with this plugin](https://github.com/umijs/umi-plugin-atpl/tree/master/examples/base)
+* [locale with this plugin](https://github.com/umijs/umi-plugin-locale/tree/master/examples/base)
+
+## Debug
+
+```sh
+cd examples/base
+npm link ../../
+npm i
+umi dev
+```
 
 ## LICENSE
 
 MIT
+
+## TODOLIST
+
+- unit test
+- dynamic
+- support use without antd
