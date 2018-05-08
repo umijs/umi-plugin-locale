@@ -20,7 +20,8 @@
     "umi"
   ],
   "files": [
-    "index.js"
+    "index.js",
+    "locale.js"
   ],
   "dependencies": {
     "react-intl": "^2.4.0"
