@@ -1,11 +1,8 @@
 export default {
   plugins: [
-    'umi-plugin-dva',
-    [
-      'umi-plugin-locale',
-      {
-        enable: true
-      }
-    ],
+    'umi-plugin-locale',
   ],
+  locale: {
+    enable: true,
+  }
 }

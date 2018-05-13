@@ -1,4 +1,4 @@
-# umi-plugin-locale ( Still work in progress )
+# umi-plugin-locale ( still work in progress )
 
 [![NPM version](https://img.shields.io/npm/v/umi-plugin-locale.svg?style=flat)](https://npmjs.org/package/umi-plugin-locale)
 
@@ -12,13 +12,18 @@ Save dependencies.
 $ npm install umi-plugin-locale --save-dev
 ```
 
-Add plugin in `.umirc.js`.
+Add and config plugin in `.umirc.js`.
 
 ```js
 export default {
   plugins: [
     'umi-plugin-locale',
   ],
+  locale: {
+    enable: true,
+    default: 'zh-CN',
+    baseNavigator: true,
+  }
 }
 ```
 
@@ -32,7 +37,7 @@ export default {
 
 Then you can wirte code like this:
 
-```
+```js
 import {
   formatMessage,
   setLocale,

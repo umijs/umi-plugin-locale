@@ -1,5 +1,6 @@
 {
-  "dependencies": {
-    "umi-plugin-dva": "^0.6.4"
-  }
+  "scripts": {
+    "start": "CLEAR_CONSOLE=none umi dev"
+  },
+  "dependencies": {}
 }

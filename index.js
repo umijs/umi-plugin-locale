@@ -1,46 +1,54 @@
 const { join, dirname, resolve } = require('path');
 const { existsSync, statSync, readdirSync } = require('fs');
 
-module.exports = function (api, opts = {
-  enable: false,
-  baseNavigator: true,
-  default: 'zh-CN',
-}) {
-  if (opts.enable === false) {
-    return;
-  }
+module.exports = function (api) {
   const { IMPORT } = api.placeholder;
   const { paths, config } = api.service;
   const { winPath } = api.utils;
+  const opts = config.locale || {};
 
-  api.register('modifyPageWatchers', ({ memo }) => {
-    return [
-      ...memo,
-      join(paths.absSrcPath, 'locale'),
-    ];
-  });
-
-  api.register('modifyRouterContent', ({ memo }) => {
-    const localeFileList = getLocaleFileList();
-    return getLocaleWrapper(localeFileList, memo);
-  });
-
-  api.register('modifyRouterFile', ({ memo }) => {
-    const localeFileList = getLocaleFileList();
-    return memo
-      .replace(
-        IMPORT,
-        getInitCode(localeFileList, opts.default, opts.baseNavigator),
-      );
-  });
-
-  api.register('modifyAFWebpackOpts', ({ memo }) => {
-    memo.alias = {
-      ...(memo.alias || {}),
-      'umi/locale': resolve(__dirname, 'locale.js'),
-    };
+  api.register('modifyConfigPlugins', ({ memo }) => {
+    memo.push(api => {
+      return {
+        name: 'locale',
+        onChange() {
+          api.service.restart('locale config changed');
+        }
+      }
+    });
     return memo;
   });
+
+  if (opts.enable) {
+    api.register('modifyPageWatchers', ({ memo }) => {
+      return [
+        ...memo,
+        join(paths.absSrcPath, 'locale'),
+      ];
+    });
+
+    api.register('modifyRouterContent', ({ memo }) => {
+      const localeFileList = getLocaleFileList();
+      return getLocaleWrapper(localeFileList, memo);
+    });
+
+    api.register('modifyRouterFile', ({ memo }) => {
+      const localeFileList = getLocaleFileList();
+      return memo
+        .replace(
+          IMPORT,
+          getInitCode(localeFileList, opts.default, opts.baseNavigator),
+        );
+    });
+
+    api.register('modifyAFWebpackOpts', ({ memo }) => {
+      memo.alias = {
+        ...(memo.alias || {}),
+        'umi/locale': resolve(__dirname, 'locale.js'),
+      };
+      return memo;
+    });
+  }
 
   function getLocaleFileList() {
     const localeList = [];
