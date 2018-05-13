@@ -45,6 +45,7 @@ module.exports = function (api) {
       memo.alias = {
         ...(memo.alias || {}),
         'umi/locale': resolve(__dirname, 'locale.js'),
+        'react-intl': dirname(require.resolve('react-intl/package')),
       };
       return memo;
     });
