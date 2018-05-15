@@ -1,5 +1,5 @@
 import { join } from 'path';
-import localePlugin, { getLocaleFileList } from './index';
+import localePlugin, { getLocaleFileList } from '../src/index';
 
 const absSrcPath = join(__dirname, '../examples/base/src');
 
@@ -78,7 +78,7 @@ describe('test plugin', () => {
           xxx: {},
           alias: {
             test: 'hi/hello',
-            'umi/locale': join(__dirname, './locale.js'),
+            'umi/locale': join(__dirname, '../src/locale.js'),
             'react-intl': expect.stringContaining('react-intl'),
           }
         });

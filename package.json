@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-locale",
-  "version": "0.0.1-beta.3",
+  "version": "0.0.1-beta.4",
   "description": "A umi plugin for provide internationalization function.",
   "main": "index.js",
   "authors": [
@@ -14,18 +14,15 @@
     "url": "https://github.com/umijs/umi-plugin-locale/issues"
   },
   "scripts": {
-    "pub": "umi test --coverage && npm publish",
+    "pub": "umi test --coverage && npm run build && npm publish",
     "test": "umi test --coverage",
-    "dev": "cd src && babel index.js locale.js --watch --presets=es2015,stage-1 --out-dir ..",
-    "build": "cd src && babel index.js locale.js --presets=es2015,stage-1 --out-dir .."
+    "dev":
+      "cd src && babel index.js locale.js --watch --presets=es2015,stage-1 --out-dir ..",
+    "build":
+      "cd src && babel index.js locale.js --presets=es2015,stage-1 --out-dir .."
   },
-  "keywords": [
-    "umi"
-  ],
-  "files": [
-    "index.js",
-    "locale.js"
-  ],
+  "keywords": ["umi"],
+  "files": ["index.js", "locale.js"],
   "dependencies": {
     "react-intl": "^2.4.0"
   },
