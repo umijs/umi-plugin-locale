@@ -17,9 +17,9 @@
     "pub": "umi test --coverage && npm run build && npm publish",
     "test": "umi test --coverage",
     "dev":
-      "cd src && babel index.js locale.js --watch --presets=es2015,stage-1 --out-dir ..",
+      "babel src --watch --presets=es2015,stage-1 --out-dir .",
     "build":
-      "cd src && babel index.js locale.js --presets=es2015,stage-1 --out-dir .."
+      "babel src --presets=es2015,stage-1 --out-dir ."
   },
   "keywords": ["umi"],
   "files": ["index.js", "locale.js"],
