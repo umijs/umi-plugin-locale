@@ -57,10 +57,18 @@ export default () => {
 ## Debug
 
 ```sh
+npm run dev
 cd examples/base
 npm link ../../
 npm i
 umi dev
+```
+
+## Release
+
+```sh
+npm run build
+npm run pub
 ```
 
 ## Todo

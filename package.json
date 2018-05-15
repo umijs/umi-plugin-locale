@@ -16,7 +16,7 @@
   "scripts": {
     "pub": "umi test --coverage && npm publish",
     "test": "umi test --coverage",
-    "dev": "cd src && babel index.js locale.js --presets=es2015,stage-1 ---watch --out-dir ..",
+    "dev": "cd src && babel index.js locale.js --watch --presets=es2015,stage-1 --out-dir ..",
     "build": "cd src && babel index.js locale.js --presets=es2015,stage-1 --out-dir .."
   },
   "keywords": [
