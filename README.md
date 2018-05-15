@@ -63,12 +63,11 @@ npm i
 umi dev
 ```
 
+## Todo
+
+- dynamic
+- support use without antd
+
 ## LICENSE
 
 MIT
-
-## TODOLIST
-
-- unit test
-- dynamic
-- support use without antd

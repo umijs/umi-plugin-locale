@@ -1,5 +1,12 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 /* eslint-disable no-undef */
-const { FormattedMessage } = require('react-intl');
+var _require = require('react-intl'),
+    FormattedMessage = _require.FormattedMessage;
 
 function setLocale(lang) {
   if (lang !== undefined && !/^([a-z]{2})-([A-Z]{2})$/.test(lang)) {
@@ -14,10 +21,10 @@ function getLocale() {
   return window.localStorage.getItem('umi_locale');
 }
 
-let intl = {
-  formatMessage: () => {
+var intl = {
+  formatMessage: function formatMessage() {
     return null;
-  },
+  }
 };
 
 // react-intl 没有直接暴露 formatMessage 这个方法
@@ -29,13 +36,13 @@ function _setIntlObject(theIntl) {
 }
 
 function formatMessage() {
-  return intl.formatMessage.call(intl, ...arguments);
+  var _intl$formatMessage;
+
+  return (_intl$formatMessage = intl.formatMessage).call.apply(_intl$formatMessage, [intl].concat(Array.prototype.slice.call(arguments)));
 }
 
-export {
-  formatMessage,
-  setLocale,
-  getLocale,
-  FormattedMessage,
-  _setIntlObject,
-};
+exports.formatMessage = formatMessage;
+exports.setLocale = setLocale;
+exports.getLocale = getLocale;
+exports.FormattedMessage = FormattedMessage;
+exports._setIntlObject = _setIntlObject;

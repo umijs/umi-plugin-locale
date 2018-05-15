@@ -14,7 +14,10 @@
     "url": "https://github.com/umijs/umi-plugin-locale/issues"
   },
   "scripts": {
-    "test": "umi-test --coverage"
+    "pub": "umi test --coverage && npm publish",
+    "test": "umi test --coverage",
+    "dev": "cd src && babel index.js locale.js --presets=es2015,stage-1 ---watch --out-dir ..",
+    "build": "cd src && babel index.js locale.js --presets=es2015,stage-1 --out-dir .."
   },
   "keywords": [
     "umi"
@@ -25,5 +28,10 @@
   ],
   "dependencies": {
     "react-intl": "^2.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1"
   }
 }
