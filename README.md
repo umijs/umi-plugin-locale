@@ -12,7 +12,7 @@ Save dependencies.
 $ npm install umi-plugin-locale --save-dev
 ```
 
-Add and config plugin in `.umirc.js`.
+Add and config plugin in `config/config.js`.
 
 ```js
 export default {
@@ -20,9 +20,9 @@ export default {
     'umi-plugin-locale',
   ],
   locale: {
-    enable: true,
-    default: 'zh-CN',
-    baseNavigator: true,
+    enable: true, // default true
+    default: 'zh-CN', // default zh-CN
+    baseNavigator: true, // default true
   }
 }
 ```

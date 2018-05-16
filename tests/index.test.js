@@ -36,12 +36,12 @@ describe('test plugin', () => {
     );
   });
 
-  test('enable is true', () => {
+  test('enable is true as default', () => {
     const callers = {
       modifyPageWatchers: jest.fn(),
     }
     api.service.config.locale = {
-      enable: true
+      enable: undefined
     };
     api.register = (name, handler) => {
       if (name === 'modifyPageWatchers') {
@@ -58,12 +58,17 @@ describe('test plugin', () => {
           memo: '<Router />',
         });
         expect(ret).toEqual(expect.stringContaining('<Router />'));
+        expect(ret).toEqual(expect.stringContaining('<Router />'));
+        expect(ret).toEqual(expect.stringContaining('<LocaleProvider'));
+        expect(ret).toEqual(expect.stringContaining('<IntlProvider'));
       }
       if (name === 'modifyRouterFile') {
         const ret = handler({
           memo: 'test-placeholder',
         });
         expect(ret).toEqual(expect.stringContaining('test-placeholder'));
+        expect(ret).toEqual(expect.stringContaining('LocaleProvider'));
+        expect(ret).toEqual(expect.stringContaining('IntlProvider'));
       }
       if (name === 'modifyAFWebpackOpts') {
         const ret = handler({
@@ -87,8 +92,6 @@ describe('test plugin', () => {
     localePlugin(api);
   });
 });
-
-
 
 describe('test func', () => {
   test('getLocaleFileList', () => {
