@@ -4,5 +4,7 @@ export default {
   ],
   locale: {
     enable: true,
+    baseNavigator: false,
+    default: 'en-US',
   }
 }

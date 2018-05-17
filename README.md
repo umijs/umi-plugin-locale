@@ -1,4 +1,4 @@
-# umi-plugin-locale ( still work in progress )
+# umi-plugin-locale
 
 [![NPM version](https://img.shields.io/npm/v/umi-plugin-locale.svg?style=flat)](https://npmjs.org/package/umi-plugin-locale)
 
@@ -12,7 +12,7 @@ Save dependencies.
 $ npm install umi-plugin-locale --save-dev
 ```
 
-Add and config plugin in `config/config.js`.
+Add and config plugin in  `.umirc.js` or `config/config.js`.
 
 ```js
 export default {
@@ -22,7 +22,7 @@ export default {
   locale: {
     enable: true, // default true
     default: 'zh-CN', // default zh-CN
-    baseNavigator: true, // default true
+    baseNavigator: true, // default true, when it is true, will use `navigator.language` overwrite default
   }
 }
 ```
