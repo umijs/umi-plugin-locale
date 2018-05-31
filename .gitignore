@@ -4,3 +4,4 @@ examples/**/.umi
 /locale.js
 .DS_Store
 coverage/
+config.local.js

@@ -6,5 +6,6 @@ export default {
     enable: true,
     baseNavigator: false,
     default: 'en-US',
-  }
+  },
+  singular: true,
 }
