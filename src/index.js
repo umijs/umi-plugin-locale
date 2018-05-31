@@ -31,6 +31,7 @@ export default function (api) {
   let opts = config.locale || {};
 
   api.register('modifyConfigPlugins', ({ memo }) => {
+    console.log('modifyConfigPlugins called');
     memo.push(api => {
       return {
         name: 'locale',
