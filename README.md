@@ -20,14 +20,16 @@ export default {
     'umi-plugin-locale',
   ],
   locale: {
-    enable: true, // default true
+    enable: true, // default false
     default: 'zh-CN', // default zh-CN
     baseNavigator: true, // default true, when it is true, will use `navigator.language` overwrite default
-  }
+    antd: true, // use antd, default is true
+  },
+  singular: true, // when singular is not true, use locales as the resources folder
 }
 ```
 
-Add locale file in `src/locale` like `zh-CN.js`.
+Add locale file in `src/locale(s)` like `zh-CN.js`.
 
 ```js
 export default {
@@ -71,10 +73,9 @@ npm run build
 npm run pub
 ```
 
-## Todo
+## TodoList
 
-- dynamic
-- support use without antd
+- dynamic load locale resources.
 
 ## LICENSE
 

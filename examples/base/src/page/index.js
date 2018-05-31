@@ -4,6 +4,7 @@ import {
   getLocale,
   FormattedMessage,
 } from 'umi/locale';
+import { DatePicker } from 'antd';
 
 export default () => {
   console.log(getLocale(), formatMessage({
@@ -14,6 +15,7 @@ export default () => {
   return (
     <div>
       hello world. <FormattedMessage id="test" values={{ name: 'antd' }} />
+      <DatePicker />
       <button onClick={() => {
         setLocale('en-US');
       }}>en-US</button>
