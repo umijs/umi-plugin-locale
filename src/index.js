@@ -25,9 +25,10 @@ export function getLocaleFileList(absSrcPath, singular) {
 }
 
 export default function (api) {
-  const { IMPORT } = api.placeholder;
-  const { paths, config } = api.service;
-  const { winPath } = api.utils;
+  const { service, utils, placeholder } = api;
+  const { IMPORT } = placeholder;
+  const { paths, config } = service;
+  const { winPath } = utils;
 
   api.register('modifyConfigPlugins', ({ memo }) => {
     memo.push(api => {
@@ -55,7 +56,7 @@ export default function (api) {
     }
     return [
       ...memo,
-      join(paths.absSrcPath, 'locale'),
+      join(paths.absSrcPath, service.config.singular ? 'locale' : 'locales'),
     ];
   });
 
@@ -63,7 +64,7 @@ export default function (api) {
     if (!config.locale || !config.locale.enable) {
       return memo;
     }
-    const localeFileList = getLocaleFileList(paths.absSrcPath, config.singular);
+    const localeFileList = getLocaleFileList(paths.absSrcPath, service.config.singular);
     return getLocaleWrapper(localeFileList, memo, config.locale.antd);
   });
 
@@ -72,7 +73,7 @@ export default function (api) {
       return memo;
     }
     const opts = config.locale;
-    const localeFileList = getLocaleFileList(paths.absSrcPath, config.singular);
+    const localeFileList = getLocaleFileList(paths.absSrcPath, service.config.singular);
     return memo
       .replace(
         IMPORT,
